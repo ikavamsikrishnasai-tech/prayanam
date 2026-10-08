@@ -15,7 +15,7 @@ app.use(helmet());
 
 // CORS: allow the frontend URL(s) listed in CLIENT_URL (comma separated).
 const allowed = (process.env.CLIENT_URL || "http://localhost:5173",
-  "http://localhost:5174")
+  "http://localhost:5174","https://prayanam-c142.vercel.app")
   .split(',')
   .map((s) => s.trim().replace(/\/$/, ''))
   .filter(Boolean);
