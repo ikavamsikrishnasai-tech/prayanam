@@ -1,0 +1,26 @@
+# Optional Render Blueprint. You can also create the service manually (see README).
+services:
+  - type: web
+    name: safetour-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false        # paste your Atlas connection string in the Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        sync: false        # your Vercel URL, e.g. https://safetour.vercel.app
+      - key: ADMIN_REGISTRATION_CODE
+        sync: false
+      - key: STOP_MINUTES_THRESHOLD
+        value: "20"
+      - key: DEVIATION_KM_THRESHOLD
+        value: "5"
